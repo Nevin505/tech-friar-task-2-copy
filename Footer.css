@@ -82,6 +82,7 @@ footer{
 text-align: center;
 & div{
     display: flex;
+    gap: 0.4rem;
     padding-block: 1rem;
 }
 & img{
@@ -100,7 +101,7 @@ text-align: center;
   text-align: center;
 }
 .parent-company{
-    text-align: center;
+    text-align: left;
 }
 .subCompanies-Container{
     display: flex;
@@ -195,7 +196,9 @@ text-align: center;
 .sub-companies{
     width: 100%;
     background-color: black;
-
+}
+.parent-company{
+    text-align: center;
 }
 .copyright-content{
     background-color: black;
@@ -208,6 +211,8 @@ text-align: center;
 #secure-Lock-small{
     display: none;
 }
+
+
 }
 /* To Alter the Background Color of The Icon Images */
 .imageBackgrounColorBlacK{

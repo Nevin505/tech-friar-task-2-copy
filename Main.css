@@ -81,6 +81,7 @@ input[type="datetime-local"]::-webkit-calendar-picker-indicator {
   background-repeat: no-repeat;
   background-position: center;
   margin-top: 0.5rem;
+  border-radius: 1.43rem;
   & p {
     color: white;
   }
