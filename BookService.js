@@ -8,8 +8,15 @@ const onlyForMobileView=document.getElementsByClassName('onlyForMobileView');
 const bookCarButton=document.getElementById('bookCar-button');
 // 
 
+
+
 bookCarButton.addEventListener('click',()=>{
     const clonedNode=pickOptionElemnt[0].cloneNode(true);
+
+    clonedNode.querySelector('#pickUp').addEventListener('click',removePickUpLocation)
+
+    clonedNode.querySelector('#diff-dropOff').addEventListener('click',addPickUpLocations)
+
     // clone the to display varoius booking option 
     const bookingDescriptionCloneNode=bookingDescription[0].cloneNode(true);
 
@@ -25,6 +32,7 @@ bookCarButton.addEventListener('click',()=>{
     clonedSearchButtonElement.textContent='Search'
 
     clonedNode.classList.add('visbleBookOptions')
+    
     // to change the flex direction for mobile devices 
     bookingDescriptionCloneNode.classList.add('changeLayout')
     // to add the elements on to the html element 

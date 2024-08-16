@@ -79,22 +79,26 @@
           </div>
         </div>
         <!-- Service Info Message -->
-        <p class="service-info">
+        <!-- <p class="service-info">
           Sunday Pick Up/Drop-Off
           <span class="service-details"
             >only at Dubai Silicon Oasis & Habtoor Grand Sales Counters | All
             Rates inclusive of VAT. T&C’s apply | Follow us on Social Media for
             New Offers</span
           >
-        </p>
+        </p> -->
+        <marquee class=" service-info" >  Sunday Pick Up/Drop-Off only at Dubai Silicon Oasis & Habtoor Grand Sales Counters | All
+          Rates inclusive of VAT. T&C’s apply | Follow us on Social Media for
+          New Offers</marquee>
       </nav>
 
       <!-- Conatiner for booking And download-section  -->
       <section class="booking-download-section">
         <!-- Conatiner for differet Types of PickUp Option and Selecting Vehichle Types -->
         <div class="pickUp-OptionContainer">
-          <button class="border-0 " onclick="removePickUpLocation()">Same as Pick-Up</button>
-          <button class="border-0 " id="diff-dropOff" onclick="addPickUpLocations()">Different Drop-Off</button>
+          <button class="border-0 "
+          id="pickUp">Same as Pick-Up</button>
+          <button class="border-0 " id="diff-dropOff">Different Drop-Off</button>
           <select name="" id="" class="pointer" >
             <option value="">Select vehicle type</option>
           </select>
@@ -184,12 +188,17 @@
 
             <section class="onlyForMobileView">
             </section>
-            <section class="banner-container">
+            <section class="banner-container" id="bannerContainer">
                  <div class="offer-details-container">
                     <p>Recieve guarnteed <br> on a monthly hire or lease</p>
                     <button class="border-0">GIFT VOUCHER</button>
                  </div>
-                 <img src="./icons/three-dots.svg" alt="carousel-navigator-icons" width="60" height="9" class="carousel-navigator">
+                   <div class="carousel-navigator">
+                    <div class="circle-1"></div>
+                    <div class="circle-1"></div>
+                    <div class="circle-1"></div>              
+                   </div>
+                 <!-- <img src="./icons/three-dots.svg" alt="carousel-navigator-icons" width="60" height="9" class="carousel-navigator"> -->
             </section>
 
     <section class="popular-cars-section">
@@ -228,10 +237,10 @@
              </div>
            </div>
            <div class="car-item">
-            <img src="./images/scoll-bar-image1.png" alt="Vehichle Image" class="vehicle-image">
+            <img src="./images/Second-car.svg"  width="360" height="290" alt="Vehichle Image" class="vehicle-image">
             <div  class="car-item-details">
-               <h3>Mitsubishi Eclipse</h3>
-               <p class="car-item-description">Eclipse Cross is a fusion of sharp coupe looks and dynamic SUV mobility with signature Mitsubishi styling, technology and driving confidence.</p>
+               <h3>Jac J7</h3>
+               <p class="car-item-description">S3 Plus has been rated Five-Star in C-NCAP including front impact, side impact, frontal side impact & Whipping test.</p>
             
                <div class="vehicle-info">
                 <!-- Each Items tells about the  Specification  of the Vehicle-->
