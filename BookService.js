@@ -1,4 +1,4 @@
-const elemnts=document.getElementsByClassName('pickUp-OptionContainer');
+const pickOptionElemnt=document.getElementsByClassName('pickUp-OptionContainer');
 
 const bookingDescription=document.getElementsByClassName('booking-type-container')
 
@@ -9,21 +9,28 @@ const bookCarButton=document.getElementById('bookCar-button');
 // 
 
 bookCarButton.addEventListener('click',()=>{
-    const clonedNode=elemnts[0].cloneNode(true);
+    const clonedNode=pickOptionElemnt[0].cloneNode(true);
+    // clone the to display varoius booking option 
     const bookingDescriptionCloneNode=bookingDescription[0].cloneNode(true);
 
     // To Change the Value of the Drop Down Tag
+    // Change the text of the select tag for mobile Screens
     const clonedSelectTag=clonedNode.querySelector('select');
+    // To Change the text content value of the button via using class Name
     clonedSelectTag.options[0].textContent  = 'Vehicle Type';
-   // To Change the text content value of the button via using class Name
+
+    // to change the button innertext Value
     const clonedSearchButtonElement=bookingDescriptionCloneNode.querySelector('.search-button');
+
     clonedSearchButtonElement.textContent='Search'
+
     clonedNode.classList.add('visbleBookOptions')
+    // to change the flex direction for mobile devices 
     bookingDescriptionCloneNode.classList.add('changeLayout')
+    // to add the elements on to the html element 
     onlyForMobileView[0].innerHTML='';
     onlyForMobileView[0].appendChild(clonedNode)
     onlyForMobileView[0].appendChild(bookingDescriptionCloneNode);
-    console.log(bookingDescriptionCloneNode)
 })
 
 const removePickUpLocation=()=>{
@@ -33,10 +40,10 @@ const removePickUpLocation=()=>{
 
 const addPickUpLocations=()=>{
       const removeDifferentPickUp=document.querySelector('.onlyForMobileView >.booking-type-container > #same-as-pickUp');
- 
       removeDifferentPickUp.style.display='block'
 }
-// subscribe-newLetter Validation
+
+// subscribe-newsLetter Validation
 document.getElementById('subscribe-newLetter').addEventListener('submit',(e)=>{
   e.preventDefault();
   const errorNameDisplayElement=document.getElementById('invalidNameMessage');
@@ -47,58 +54,64 @@ document.getElementById('subscribe-newLetter').addEventListener('submit',(e)=>{
   const userEmail=formData.get('email')
   const userName=formData.get('name')
 
-  if(fieldFalsyCheck(userEmail) ){
-    errorEmailDisplayElement.innerText='';
-    console.log("Herr test Passed");
-  }
-  else{
+  if(!fieldFalsyCheck(userEmail) ){
     errorEmailDisplayElement.innerText='*Email Cannot Be Empty';
   }
+  else if(!regexPatternCondition(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,userEmail)){
+    errorEmailDisplayElement.innerText='*Enter a Valid Email';
+  }
+  else{
+    errorEmailDisplayElement.innerText='';
+     
+  }
 
-  if(fieldFalsyCheck(userName) ){
+  if(!fieldFalsyCheck(userName) ){
+    errorNameDisplayElement.innerText='*Name Cannot Be Empty';
+  }
+  else{
     errorNameDisplayElement.innerText='';
   }
-  else{
-    errorNameDisplayElement.innerText='*Name Cannot Be Empty';
-    return;
-  }
-
-  alert("Successfullty Subscribed to Our NewsLetter")
+  
+  if( !errorNameDisplayElement.innerText && !errorEmailDisplayElement.innerText)
+    {
+     alert("SubScribbed to Our News Letter")
+   }
 
 })
 
-//generateLink
-
+//generateLink Js Part 
 document.getElementById('inputLink').addEventListener('submit',(e)=>{
   e.preventDefault();
-  const errorDisplayElement=document.getElementById('errorMessageEmail')
-  const formData=new FormData(e.target);
+  const formData=new FormData(e.target);  //Used FormData to get the Values from the form Tag
   const phoneNumber=formData.get('phoneNumber')
+  const errorDisplayElement=document.getElementById('errorMessageEmail')  //To dispay the error Message if Pesent
 
-  const pattern =/^(\+91|\+91\-|0)?[789]\d{9}$/;
+  const regexPattern =/^(\+91|\+91\-|0)?[789]\d{9}$/;
 
-  if(fieldFalsyCheck(phoneNumber) ){
-    errorDisplayElement.innerText='';
-    console.log("Herr test Passed");
-  }
-  else{
+// Condition to check if the phoneNumber is Valid
+
+  if(!fieldFalsyCheck(phoneNumber) ){
     errorDisplayElement.innerText='*Cannot Be Empty';
-    return;
   }
-  if(pattern.test(phoneNumber))
-  {
-      errorDisplayElement.innerText='';
+  else if(!regexPatternCondition(regexPattern,phoneNumber)){
+    errorDisplayElement.innerText='*Enter a Valid Phone Number';
   }
   else{
-    errorDisplayElement.innerText='*Enter a Valid Email';
+    errorDisplayElement.innerText='';
+    alert("Sent")
   }
 })
 
-// 0
 
+// Common Function to check if the entered Value is falsy or truthy Value
 const fieldFalsyCheck=(fieldData)=>{
     if(!fieldData.trim().length>0){
       return false
     }
     return true
+}
+
+// to match a regex Pattern
+const regexPatternCondition=(regexPattern,testElement)=>{
+  return regexPattern.test(testElement)
 }

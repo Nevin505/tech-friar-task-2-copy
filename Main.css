@@ -449,17 +449,27 @@ padding-block: 1rem;
 background-color: white;
 text-align: start;
 position: relative;
+display: flex;
+justify-content: space-between;
 }
+.close-button{
+  font-size: 1.5rem;
+  transform: rotate(45deg);
+}
+/* .close-button-2{
+  transform: rotate(90deg);
+} */
+
 /* Rotate the close button */
-.accordian-button::after{
+/* .accordian-button::after{
   content: url('./icons/xmark.svg');
   position: absolute;
   right: 0;
   transform: rotate(45deg);
-}
-.accordian-button.active::after {
-  content: url('./icons/xmark.svg'); /* Change to another icon */
-}
+} */
+/* .accordian-button.active::after {
+  content: url('./icons/xmark.svg'); 
+} */
 .accordian-content{
   display: none;
   padding-block:1.5rem ;
@@ -655,6 +665,10 @@ position: relative;
     padding-right: 0rem;
     border:none;
     font-size: 0.87rem;
+}
+.location-list-new{
+   justify-content: start;
+   gap:0.8rem ;
 }
 
 .accordian-button{

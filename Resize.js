@@ -1,8 +1,8 @@
 const reduceDescriptionWords=(description)=>{
      return description.slice(0,60)+"...";
 }
+
 window.addEventListener('resize',()=>{
-    // if(window.wi)
     if(window.innerWidth<=835)
     {
         const descriptionElements=document.getElementsByClassName('car-item-description');
@@ -13,7 +13,7 @@ window.addEventListener('resize',()=>{
 
 })
 
-
+// to rem0ve the options 
 if(window.innerWidth<=835)
     {
         const descriptionElements=document.getElementsByClassName('car-item-description');
