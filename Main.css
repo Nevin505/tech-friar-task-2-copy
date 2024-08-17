@@ -29,7 +29,6 @@ a:focus {
 }
 main {
   margin: 0 auto;
-  /* border: yellow 1px solid; */
   padding-inline: var(--inlinePaddingDesktop);
   position: relative;
   overflow: hidden;
@@ -158,7 +157,7 @@ main {
   display: flex;
   & .vehicle-image {
     display: block;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center;
   
   }
@@ -207,13 +206,12 @@ main {
       color: white;
       border-radius: 0.25rem;
     }
-    & .car-item-price {
-      font-size: 1rem;
-      font-weight: 600;
-    }
   }
 }
-
+.car-item-pricing>.car-item-price {
+  font-size: 1rem;
+  font-weight: 600;
+} 
 /* exclusive-offer-section Design and links to download the app */
 .exclusive-offer-section {
   display: flex;
@@ -545,10 +543,8 @@ justify-content: space-between;
       /* border: 2px solid blue; */
       display: flex;
       flex-direction: column;
-      height: 13.8rem;
       gap: 0.4rem;
       width: 13rem;
-      height: 12rem;
       padding: 0.625rem;
       & h3 {
         font-weight: 600;
