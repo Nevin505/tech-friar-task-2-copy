@@ -22,6 +22,14 @@ a, a:active, a:focus {
  button:focus {
     outline: none;
 }
+
+
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    /* content: url('./icons/calender.svg'); */
+    visibility: hidden;
+  }
+
 header{
     width: 100%;
     margin: 0 auto; 
@@ -115,9 +123,9 @@ header{
       color: white;
     cursor: pointer;
     background-color: transparent;
-    background-color: transparent;
-    /* border: 1px black solid; */
-    height: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    /* height: 2.2em; */
     padding: 0.4rem;
   }
   & select{
@@ -255,17 +263,23 @@ position: relative;
 .item2{
     top: 68%;
 }
-.pickUp-OptionContainer>button:hover{
+
+/* .pickUp-OptionContainer>button:hover{
     border-bottom: 1px solid black;
-}
+} */
 
 .border-bottom{
     border: 1px solid black;
 }
 
 
-.clicked{
-    border-bottom: 2px solid black;
+.clicked::after{
+    content: "";
+    display: flex;
+    height: 0.05rem;
+    width: 100%;
+    background-color: white;
+
 }
 
 @media(max-width:1024px){
@@ -454,6 +468,15 @@ position: relative;
         width: fit-content;
         margin: 0 auto;
     }
+
+    
+.clicked::after{
+    height: 0.1rem;
+    width: 50%;
+    background-color: black;
+
+}
+
 }
 
 

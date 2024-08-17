@@ -6,15 +6,16 @@ const bookingDescription=document.getElementsByClassName('booking-type-container
 const onlyForMobileView=document.getElementsByClassName('onlyForMobileView');
 
 const bookCarButton=document.getElementById('bookCar-button');
-// 
 
 
 
+//cloned the bookoptions Container class and changed the direction of the flex class
 bookCarButton.addEventListener('click',()=>{
-    const clonedNode=pickOptionElemnt[0].cloneNode(true);
+  
+  const clonedNode=pickOptionElemnt[0].cloneNode(true);  // Deep clone the original node
 
     clonedNode.querySelector('#pickUp').addEventListener('click',removePickUpLocation)
-
+    
     clonedNode.querySelector('#diff-dropOff').addEventListener('click',addPickUpLocations)
 
     // clone the to display varoius booking option 
@@ -41,15 +42,48 @@ bookCarButton.addEventListener('click',()=>{
     onlyForMobileView[0].appendChild(bookingDescriptionCloneNode);
 })
 
-const removePickUpLocation=()=>{
-    const sameAsPickUpButton = document.querySelector('.onlyForMobileView >.booking-type-container > #same-as-pickUp');
-  sameAsPickUpButton.style.display='none'
+function clearClickedClass(buttons) {
+  buttons.forEach(button => {
+      button.classList.remove('clicked');
+  });
 }
 
-const addPickUpLocations=()=>{
-      const removeDifferentPickUp=document.querySelector('.onlyForMobileView >.booking-type-container > #same-as-pickUp');
-      removeDifferentPickUp.style.display='block'
+
+// to add the display for different Views
+const removePickUpLocation=(event)=>{
+  const pickUpButtons=document.querySelectorAll('.onlyForMobileView button');
+    clearClickedClass(pickUpButtons)
+    event.currentTarget.classList.add('clicked')
+// To remove an extra input field element  i.e pickUp Locations
+    const sameAsPickUpButton = document.querySelector('.onlyForMobileView >.booking-type-container > #same-as-pickUp');
+    sameAsPickUpButton.style.display='none'
 }
+
+const addPickUpLocations=(event)=>{
+  const pickUpButtons=document.querySelectorAll('.onlyForMobileView button');
+  clearClickedClass(pickUpButtons)
+   event.currentTarget.classList.add('clicked')
+// To add  an extra input field element  i.e pickUp Locations
+    
+    const removeDifferentPickUp=document.querySelector('.onlyForMobileView >.booking-type-container > #same-as-pickUp');
+    removeDifferentPickUp.style.display='block';
+}
+
+
+// const pickUpOptionButtons=document.querySelectorAll('.pickUp-OptionContainer > button');
+
+// for(let pickUpOptionButton of pickUpOptionButtons){
+    
+//     pickUpOptionButton.addEventListener('click',()=>{
+//         for (let button of pickUpOptionButtons) {
+//             button.classList.remove('clicked');
+//         }
+//         // pickUpOptionButtons.classList.remove('clicked')
+//         pickUpOptionButton.classList.add('clicked')
+    
+//     })
+// }
+
 
 // subscribe-newsLetter Validation
 document.getElementById('subscribe-newLetter').addEventListener('submit',(e)=>{

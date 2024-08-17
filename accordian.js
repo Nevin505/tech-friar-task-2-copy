@@ -1,10 +1,6 @@
 const accordianButtons=document.getElementsByClassName('accordian-button');
-console.log(accordianButtons)
-// console.log(openCloseButton);
-
-let i=0;
+// To display the elements and the to change the src of the element
 for(let accordianButton of accordianButtons){
-    console.log(i);
     
     accordianButton.addEventListener('click',()=>{
        const accordianContent= accordianButton.nextElementSibling;
@@ -21,7 +17,5 @@ for(let accordianButton of accordianButtons){
         accordianButton.querySelector('.close-button').style.transform ='rotate(90deg)'
       }
 
-
     })
-    i++
 }

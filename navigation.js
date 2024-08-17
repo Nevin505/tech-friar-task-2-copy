@@ -9,18 +9,23 @@ hamBurgerIcon.addEventListener('click',()=>{
 closeButtonIcon.addEventListener('click',()=>{
     document.getElementsByClassName('side-bar')[0].classList.remove('show-dropDownMenu')
 })
+
 const pickUpOptionButtons=document.querySelectorAll('.pickUp-OptionContainer > button');
 
-console.log(pickUpOptionButtons);
 for(let pickUpOptionButton of pickUpOptionButtons){
+    
     pickUpOptionButton.addEventListener('click',()=>{
-        console.log("clicked");
+        for (let button of pickUpOptionButtons) {
+            button.classList.remove('clicked');
+        }
+        // pickUpOptionButtons.classList.remove('clicked')
         pickUpOptionButton.classList.add('clicked')
-        
-        
+    
     })
 }
 
+
+// For changing the backImgaes for Carousel
 const backgroundImages = [
     "./images/2018-Mitsubishi-ASX-1920x966 1.png","./images/2018-Mitsubishi-ASX-1920x966 1.png","./images/2018-Mitsubishi-ASX-1920x966 1.png"
 ];
@@ -30,8 +35,7 @@ let iteration = 0;
 
 setInterval(() => {
     // Update background image
-    bannerContainer.style.backgroundImage = `url('${backgroundImages[iteration]}')`;
-    
+    bannerContainer.style.backgroundImage = `url('${backgroundImages[iteration]}')`;   
     // Increment iteration or reset to 0 if end of array is reached
     iteration = (iteration + 1) % backgroundImages.length;
     updateHighlight(iteration)
